@@ -1,0 +1,533 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dobby</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="config/config.html"><strong aria-hidden="true">3.</strong> dobby.toml</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="config/workflow.html"><strong aria-hidden="true">3.1.</strong> Workflows</a></li><li class="chapter-item expanded "><a href="config/step/step.html"><strong aria-hidden="true">3.2.</strong> Steps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="config/step/SelectJiraIssue.html"><strong aria-hidden="true">3.2.1.</strong> SelectJiraIssue</a></li><li class="chapter-item expanded "><a href="config/step/TransitionJiraIssue.html"><strong aria-hidden="true">3.2.2.</strong> TransitionJiraIssue</a></li><li class="chapter-item expanded "><a href="config/step/SelectGitHubIssue.html"><strong aria-hidden="true">3.2.3.</strong> SelectGitHubIssue</a></li><li class="chapter-item expanded "><a href="config/step/SelectIssueFromBranch.html"><strong aria-hidden="true">3.2.4.</strong> SelectIssueFromBranch</a></li><li class="chapter-item expanded "><a href="config/step/SwitchBranches.html"><strong aria-hidden="true">3.2.5.</strong> SwitchBranches</a></li><li class="chapter-item expanded "><a href="config/step/RebaseBranch.html"><strong aria-hidden="true">3.2.6.</strong> RebaseBranch</a></li><li class="chapter-item expanded "><a href="config/step/BumpVersion.html"><strong aria-hidden="true">3.2.7.</strong> BumpVersion</a></li><li class="chapter-item expanded "><a href="config/step/Command.html"><strong aria-hidden="true">3.2.8.</strong> Command</a></li><li class="chapter-item expanded "><a href="config/step/UpdateProjectFromCommits.html"><strong aria-hidden="true">3.2.9.</strong> UpdateProjectFromCommits</a></li></ol></li><li class="chapter-item expanded "><a href="config/jira.html"><strong aria-hidden="true">3.3.</strong> Jira</a></li><li class="chapter-item expanded "><a href="config/github.html"><strong aria-hidden="true">3.4.</strong> GitHub</a></li></ol></li><li class="chapter-item expanded "><a href="state/state.html"><strong aria-hidden="true">4.</strong> State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state/Initial.html"><strong aria-hidden="true">4.1.</strong> Initial</a></li><li class="chapter-item expanded "><a href="state/IssueSelected.html"><strong aria-hidden="true">4.2.</strong> IssueSelected</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Dobby</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Dobby is a CLI for developers used to automate common tasks workflows. Things like transitioning issues, creating and merging branches, creating pull requests, bumping versions, tagging... anything that is a repetitive, time consuming task in your development cycle, this tool is made to speed up.</p>
+<h2><a class="header" href="#how-it-works" id="how-it-works">How it Works</a></h2>
+<p>Basically you create a file called <code>dobby.toml</code> in your project directory which defines some workflows. The format of this file is described in <a href="config/config.html">the next chapter</a>, the key piece to which is the <code>workflows</code> array. For a full example of a <code>dobby.toml</code>, check out the file for this project!</p>
+<p>Once you've got a config set up, you just run this program (<code>dobby</code> if you installed normally via cargo). That will prompt you to select one of your configured workflows. Do that and you're off to the races!</p>
+<h2><a class="header" href="#features" id="features">Features</a></h2>
+<p>More detail on everything this program can do can be found by digging into <a href="config/config.html">config</a> but here's a rough (incomplete) summary:</p>
+<ol>
+<li>Select issues from Jira or GitHub to work on, transition and create branches from them.</li>
+<li>Do some basic git commands like switching branches or rebasing.</li>
+<li>Bump the version of your project using semantic rules.</li>
+<li>Bump your version AND generate a Changelog entry from conventional commits.</li>
+<li>Do whatever you want by running arbitrary shell commands and substituting data from the project!</li>
+</ol>
+<h2><a class="header" href="#concepts" id="concepts">Concepts</a></h2>
+<p>You define a <a href="config/config.html">config</a> file named <code>dobby.toml</code> which has some metadata (e.g. Jira details) about your project, as well as a set of defined <a href="workflow.html">workflows</a>. Each <a href="workflow.html">workflow</a> consists of a series of <a href="step.html">steps</a> that will execute in order, stopping if any step fails. <a href="step.html">Steps</a> can affect the <a href="state.html">state</a> of the workflow. Some <a href="step.html">steps</a> require that the workflow be in a specific <a href="state.html">state</a> before they will work.</p>
+<h1><a class="header" href="#installation" id="installation">Installation</a></h1>
+<h2><a class="header" href="#install-via-cargo-recommended" id="install-via-cargo-recommended">Install via Cargo (Recommended)</a></h2>
+<p>Dobby is written in Rust and published on <a href="https://crates.io/crates/dobby">crates.io</a> which means it can therefore be installed by:</p>
+<ol>
+<li>Installing cargo via <a href="https://rustup.rs">Rustup</a></li>
+<li>Running <code>cargo install dobby</code></li>
+</ol>
+<h2><a class="header" href="#install-from-source" id="install-from-source">Install from Source</a></h2>
+<ol>
+<li>Install the current Rust stable toolchain via <a href="https://rustup.rs">Rustup</a></li>
+<li>Clone <a href="https://github.com/triaxtec/dobby/">the GitHub repo</a></li>
+<li><code>cargo install --path .</code> in the cloned directory</li>
+</ol>
+<h2><a class="header" href="#download-a-binary" id="download-a-binary">Download a Binary</a></h2>
+<p>We automatically build binaries for some platforms which can be found on the <a href="https://github.com/triaxtec/dobby/releases">Releases</a> page.</p>
+<h2><a class="header" href="#other" id="other">Other</a></h2>
+<p>Have another method you'd prefer to use to install Dobby? Let us know by <a href="https://github.com/triaxtec/dobby/issues">opening a GitHub issue</a>.</p>
+<h1><a class="header" href="#config" id="config">Config</a></h1>
+<p>This is the top level structure that your <code>dobby.toml</code> must adhere to to be valid. If you don't have a <code>dobby.toml</code> in the working directory or it isn't valid, you'll get an error right off the bat.</p>
+<h2><a class="header" href="#example" id="example">Example</a></h2>
+<pre><code class="language-toml">[[workflows]]
+name = &quot;First Workflow&quot;
+# Details here
+
+[[workflows]]
+name = &quot;Second Workflow&quot;
+# Details here
+
+[jira]
+# Jira config here
+
+[github]
+# GitHub config here
+</code></pre>
+<p>When you first start <code>dobby</code>, you will be asked to select a <a href="config/./workflow.html">workflow</a> to run. In the above example, this would look something like:</p>
+<pre><code>? Select a workflow
+&gt; First Workflow
+  Second Workflow
+</code></pre>
+<p>You can use your arrow keys to then select an option to run. The <code>&gt;</code> symbol indicates which workflow is selected. Pressing the <code>Enter</code> key on your keyboard will run the workflow.</p>
+<h2><a class="header" href="#see-also" id="see-also">See Also</a></h2>
+<ul>
+<li><a href="config/./workflow.html">Workflows</a> for details on defining entries to the <code>[[workflows]]</code> array</li>
+<li><a href="config/./jira.html">Jira</a> for details on defining <code>[jira]</code></li>
+<li><a href="config/./github.html">GitHub</a> for details on defining <code>[github]</code></li>
+</ul>
+<h1><a class="header" href="#workflow" id="workflow">Workflow</a></h1>
+<p>A workflow is the entrypoint to doing work with Dobby. Once you start running <code>dobby</code> you must immediately select a workflow (by name) to be executed.</p>
+<p>Each workflow is defined in the <code>[[workflows]]</code> array in your <a href="config/./config.html">dobby.toml</a> file. Each entry contains a <code>name</code> attribute which is how the workflow will be displayed when running <code>dobby</code>. There is also an array of <a href="config/./step/step.html">steps</a> declared as <code>[[workflows.steps]]</code> which define the individual actions to take.</p>
+<h2><a class="header" href="#example-1" id="example-1">Example</a></h2>
+<pre><code class="language-toml"># dobby.toml
+
+[[workflows]]
+name = &quot;My First Workflow&quot;
+    [[workflows.steps]]
+    # First step details here
+    [[workflows.steps]]
+    # second step details here
+</code></pre>
+<h2><a class="header" href="#see-also-1" id="see-also-1">See Also</a></h2>
+<ul>
+<li><a href="config/./step/step.html">Step</a> for details on how each <code>[[workflows.steps]]</code> is defined.</li>
+</ul>
+<h1><a class="header" href="#step" id="step">Step</a></h1>
+<p>A step is the atomic unit of work that Dobby operates on. In a <a href="config/step/../workflow.html">workflow</a>, steps will be executed sequentially until one fails or all steps are completed.</p>
+<p>In it's simplest form, a step is declared in a <a href="config/step/../workflow.html">workflow</a> like this:</p>
+<pre><code class="language-toml">[[workflows]]
+name = &quot;My Workflow&quot;
+    [[workflows.steps]]
+    type = &quot;AStepType&quot;
+    more_info = &quot;Something&quot;
+</code></pre>
+<p>Where <code>type</code> matches one of the available steps listed below. Some steps also can take additional parameters in config, those go right underneath <code>type</code> like <code>more_info</code> above.</p>
+<h2><a class="header" href="#available-steps" id="available-steps">Available Steps</a></h2>
+<ul>
+<li><a href="config/step/./SelectJiraIssue.html">SelectJiraIssue</a></li>
+<li><a href="config/step/./TransitionJiraIssue.html">TransitionJiraIssue</a></li>
+<li><a href="config/step/./SelectGitHubIssue.html">SelectGitHubIssue</a></li>
+<li><a href="config/step/./SelectIssueFromBranch.html">SelectIssueFromBranch</a></li>
+<li><a href="config/step/./SwitchBranches.html">SwitchBranches</a></li>
+<li><a href="config/step/./RebaseBranch.html">RebaseBranch</a></li>
+<li><a href="config/step/./BumpVersion.html">BumpVersion</a></li>
+<li><a href="config/step/./Command.html">Command</a></li>
+<li><a href="config/step/./UpdateProjectFromCommits.html">UpdateProjectFromCommits</a></li>
+</ul>
+<h1><a class="header" href="#selectjiraissue" id="selectjiraissue">SelectJiraIssue</a></h1>
+<p>Search for Jira issues by status and display the list of them in the terminal. User is allowed to select one issue which will then change the workflow's <a href="config/step/../../state/state.html">state</a> to <a href="config/step/../../state/IssueSelected.html">IssueSelected</a>.</p>
+<h2><a class="header" href="#errors" id="errors">Errors</a></h2>
+<p>This step will fail if any of the following are true:</p>
+<ol>
+<li>The <a href="config/step/../../state/state.html">state</a> is already in <a href="config/step/../../state/IssueSelected.html">IssueSelected</a> before it executes.</li>
+<li>Dobby cannot communicate with the <a href="config/step/../jira.html">configured Jira URL</a>.</li>
+<li>User does not select an issue (e.g. by pressing <code>Esc</code>).</li>
+<li>There is no <a href="config/step/../jira.html">Jira config</a> set.</li>
+</ol>
+<h2><a class="header" href="#example-2" id="example-2">Example</a></h2>
+<pre><code class="language-toml">[[workflows]]
+name = &quot;Start some work&quot;
+    [[workflows.steps]]
+    type = &quot;SelectJiraIssue&quot;
+    status = &quot;Backlog&quot;
+</code></pre>
+<h1><a class="header" href="#transitionjiraissue-step" id="transitionjiraissue-step">TransitionJiraIssue Step</a></h1>
+<p>Transition a Jira issue to a new status.</p>
+<h2><a class="header" href="#errors-1" id="errors-1">Errors</a></h2>
+<p>This step will fail when any of the following are true:</p>
+<ol>
+<li>The workflow is not yet in <a href="config/step/../../state/IssueSelected.html">IssueSelected</a> state.</li>
+<li>Cannot communicate with Jira.</li>
+<li>The configured status is invalid for the issue.</li>
+</ol>
+<h2><a class="header" href="#example-3" id="example-3">Example</a></h2>
+<pre><code class="language-toml">[[workflows]]
+name = &quot;Start some work&quot;
+    [[workflows.steps]]
+    type = &quot;SelectJiraIssue&quot;
+    status = &quot;Backlog&quot;
+
+    [[workflows.steps]]
+    type = &quot;TransitionJiraIssue&quot;
+    status = &quot;In Progress&quot;
+</code></pre>
+<h1><a class="header" href="#selectgithubissue-step" id="selectgithubissue-step">SelectGitHubIssue Step</a></h1>
+<p>Search for GitHub issues by status and display the list of them in the terminal. User is allowed to select one issue which will then change the workflow's state to
+<a href="config/step/../../state/IssueSelected.html">IssueSelected</a>.</p>
+<h2><a class="header" href="#errors-2" id="errors-2">Errors</a></h2>
+<p>This step will fail if any of the following are true:</p>
+<ol>
+<li>The workflow is already in <a href="config/step/../../state/IssueSelected.html">IssueSelected</a> state before it executes.</li>
+<li>Dobby cannot communicate with GitHub.</li>
+<li>There is no <a href="config/step/../github.html">GitHub config</a> set.</li>
+<li>User does not select an issue.</li>
+</ol>
+<h2><a class="header" href="#example-4" id="example-4">Example</a></h2>
+<pre><code class="language-toml">[[workflows]]
+name = &quot;Start some work&quot;
+    [[workflows.steps]]
+    type = &quot;SelectGitHubIssue&quot;
+    label = &quot;selected&quot;
+</code></pre>
+<h1><a class="header" href="#selectissuefrombranch-step" id="selectissuefrombranch-step">SelectIssueFromBranch step</a></h1>
+<p>Attempt to parse issue info from the current branch name and change the workflow's state to <a href="config/step/../../state/IssueSelected.html">IssueSelected</a>.</p>
+<h2><a class="header" href="#errors-3" id="errors-3">Errors</a></h2>
+<p>This step will fail if the current git branch cannot be determined or the name of that branch does not match the expected format. This is only intended to be used on branches which were created using the <a href="config/step/./SwitchBranches.html">SwitchBranches</a> step.</p>
+<h2><a class="header" href="#example-5" id="example-5">Example</a></h2>
+<pre><code class="language-toml">[[workflows]]
+name = &quot;Finish some work&quot;
+    [[workflows.steps]]
+    type = &quot;SelectIssueFromBranch&quot;
+
+    [[workflows.steps]]
+    type = &quot;TransitionJiraIssue&quot;
+    status = &quot;QA&quot;
+</code></pre>
+<h1><a class="header" href="#switchbranches-step" id="switchbranches-step">SwitchBranches step</a></h1>
+<p>Uses the name of the currently selected issue to checkout an existing or create a new branch for development. If an existing branch is not found, the user will be prompted to select an existing local branch to base the new branch off of. Remote branches are not shown.</p>
+<h2><a class="header" href="#errors-4" id="errors-4">Errors</a></h2>
+<p>This step fails if any of the following are true.</p>
+<ol>
+<li>Workflow is not in <a href="config/step/../../state/IssueSelected.html">IssueSelected</a> state.</li>
+<li>Current directory is not a Git repository</li>
+<li>There is uncommitted work on the current branch. You must manually stash or commit any changes before performing this step.</li>
+</ol>
+<h2><a class="header" href="#example-6" id="example-6">Example</a></h2>
+<pre><code class="language-toml">[[workflows]]
+name = &quot;Start some work&quot;
+    [[workflows.steps]]
+    type = &quot;SelectJiraIssue&quot;
+    status = &quot;Backlog&quot;
+
+    [[workflows.steps]]
+    type = &quot;SwitchBranches&quot;
+</code></pre>
+<h1><a class="header" href="#rebasebranch-step" id="rebasebranch-step">RebaseBranch step</a></h1>
+<p>Rebase the current branch onto the branch defined by <code>to</code>.</p>
+<h2><a class="header" href="#errors-5" id="errors-5">Errors</a></h2>
+<p>Fails if any of the following are true:</p>
+<ol>
+<li>The current directory is not a Git repository.</li>
+<li>The <code>to</code> branch cannot be found locally (does not check remotes).</li>
+<li>The repo is not on the tip of a branch (e.g. detached HEAD)</li>
+<li>Rebase fails (e.g. not a clean working tree)</li>
+</ol>
+<h2><a class="header" href="#example-7" id="example-7">Example</a></h2>
+<pre><code class="language-toml">[[workflows]]
+name = &quot;Finish some work&quot;
+    [[workflows.steps]]
+    type = &quot;RebaseBranch&quot;
+    to = &quot;main&quot;
+</code></pre>
+<h1><a class="header" href="#bumpversion-step" id="bumpversion-step">BumpVersion step</a></h1>
+<p>Bump the version of the project in any supported formats found using a <a href="https://semver.org">Semantic Versioning</a> rule.</p>
+<h2><a class="header" href="#supported-formats" id="supported-formats">Supported Formats</a></h2>
+<p>These are the types of files that this step knows how to search for a semantic version and bump. Dobby currently will only search the current directory for these files.</p>
+<ol>
+<li>Cargo.toml for Rust projects</li>
+<li>pyproject.toml for Python projects (using <a href="https://python-poetry.org">Poetry's metadata</a>)</li>
+<li>package.json for Node projects</li>
+</ol>
+<h2><a class="header" href="#example-8" id="example-8">Example</a></h2>
+<pre><code class="language-toml">[[workflows.steps]]
+type = &quot;BumpVersion&quot;
+rule = &quot;Pre&quot;
+value = &quot;rc&quot;
+</code></pre>
+<p>Where <code>rule</code> defines the <a href="https://semver.org">Semantic Versioning</a> rule to use and <code>value</code> is optional depending on the <code>rule</code>.</p>
+<h2><a class="header" href="#rules" id="rules">Rules</a></h2>
+<h3><a class="header" href="#major" id="major">Major</a></h3>
+<p>Increment the Major component of the semantic version and reset all other components (e.g. 1.2.3-rc.4 -&gt; 2.0.0).</p>
+<h3><a class="header" href="#minor" id="minor">Minor</a></h3>
+<p>Increment the Minor component of the semantic version and reset all lesser components (e.g. 1.2.3-rc.4 -&gt; 1.3.0 ).</p>
+<h3><a class="header" href="#patch" id="patch">Patch</a></h3>
+<p>Increment the Patch component of the semantic version and reset all lesser components (e.g. 1.2.3-rc.4 -&gt; 1.2.4).</p>
+<h3><a class="header" href="#pre" id="pre">Pre</a></h3>
+<p>Increment the pre-release component of the semantic version or add it if missing. You must also provide a <code>value</code> parameter to this rule which will determine the pre-release string used. For example, running this rule with the <code>value</code> &quot;rc&quot; would change &quot;1.2.3-rc.4&quot; to &quot;1.2.3-rc.5&quot; or &quot;1.2.3&quot; to &quot;1.2.3-rc.0&quot;.</p>
+<h3><a class="header" href="#release" id="release">Release</a></h3>
+<p>Remove the pre-release component of the semantic version (e.g. 1.2.3-rc.4 -&gt; 1.2.3).</p>
+<h2><a class="header" href="#errors-6" id="errors-6">Errors</a></h2>
+<p>This step will fail if any of the following are true:</p>
+<ol>
+<li>A malformed version string is found while attempting to bump.</li>
+</ol>
+<h1><a class="header" href="#command-step" id="command-step">Command step</a></h1>
+<p>Run a command in your current shell after optionally replacing some variables. This step is here to cover the infinite things you might want to do that Dobby does not yet know how to do itself. If you have a lot of these steps or a complex <code>command</code>, we recommend you write a script in something like Bash or Python, then simply call that script with a command.</p>
+<h2><a class="header" href="#example-9" id="example-9">Example</a></h2>
+<p>If the current version for your project is &quot;1.0.0&quot;, the following workflow step will run <code>git tag v.1.0.0</code> in your current shell.</p>
+<pre><code class="language-toml">[[workflows.steps]]
+type = &quot;Command&quot;
+command = &quot;git tag v.version&quot;
+variables = {&quot;version&quot; = &quot;Version&quot;}
+</code></pre>
+<h2><a class="header" href="#variables" id="variables">Variables</a></h2>
+<p>The <code>variables</code> attribute of this step is an object where the key is the string you wish to substitute and the value is one of the available variables listed below. <strong>take care when selecting a key to replace</strong> as <em>any</em> matching string that is found will be replaced. The order of this replacement is not guaranteed, so it is also possible for multiple variables to conflict with one another.</p>
+<h3><a class="header" href="#available-variables" id="available-variables">Available Variables</a></h3>
+<ol>
+<li>
+<p><code>Version</code> will attempt to parse the project version using the same method as the <a href="config/step/./BumpVersion.html">BumpVersion</a> step and substitute that string. It will select the first version found in any of the supported file names / formats to use for substitution. If no version can be found and parsed, this step will fail.</p>
+</li>
+<li>
+<p><code>IssueBranch</code> will provide the same branch name that the <a href="config/step/./SwitchBranches.html">SwitchBranches</a> step would produce. Your workflow must be in the <a href="config/step/../../state/IssueSelected.html">IssueSelected</a> state before calling a <code>Command</code> step with this variable or the step will fail.</p>
+</li>
+</ol>
+<h1><a class="header" href="#updateprojectfromcommits-step" id="updateprojectfromcommits-step">UpdateProjectFromCommits step</a></h1>
+<p>This will look through all commits since the last tag and parse any <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> it finds. It will then bump the project version (depending on the <a href="https://semver.org">Semantic Versioning</a> rule determined from the commits) and add a new Changelog entry using the <a href="https://keepachangelog.com/en/1.0.0/">Keep A Changelog</a> format.</p>
+<h2><a class="header" href="#limitations" id="limitations">Limitations</a></h2>
+<p>The CHANGELOG format is pretty strict, it needs to have at least one version already in it and every version needs to be a level 2 header (<code>## 1.0.0</code>). Only three sections will be added to the new version, <code>### Breaking Changes</code> for anything that conventional commits have marked as breaking, <code>### Fixes</code> for anything called <code>fix:</code>, and <code>### Features</code> for anything with <code>feat: </code>. Any other commits (conventional or not) will be left out. A new version will <strong>always</strong> be generated though, even if there are no changes to record.</p>
+<h2><a class="header" href="#errors-7" id="errors-7">Errors</a></h2>
+<p>The reasons this can fail:</p>
+<ol>
+<li>If there is no previous tag to base changes off of.</li>
+<li>There is no CHANGELOG.md file in the working directory to update.</li>
+<li>The version could not be bumped for some reason.</li>
+</ol>
+<h1><a class="header" href="#jira" id="jira">Jira</a></h1>
+<p>Details needed to use steps that reference Jira issues.</p>
+<h2><a class="header" href="#example-10" id="example-10">Example</a></h2>
+<pre><code class="language-TOML"># dobby.toml
+
+[jira]
+url = &quot;https://mysite.atlassian.net&quot;
+project = &quot;PRJ&quot;  # where an example issue would be PRJ-123
+</code></pre>
+<p>The first time you use a step which requires this config, you will be prompted to generate a Jira API token so Dobby can perform actions on you behalf.</p>
+<h1><a class="header" href="#github" id="github">GitHub</a></h1>
+<p>Details needed to use steps that reference GitHub repos.</p>
+<h2><a class="header" href="#example-11" id="example-11">Example</a></h2>
+<pre><code class="language-TOML"># dobby.toml
+
+[github]
+owner = &quot;triaxtec&quot;
+repo = &quot;dobby&quot;
+</code></pre>
+<p>The first time you use a step which requires this config, you will be prompted to generate a GitHub API token so Dobby can perform actions on you behalf.</p>
+<h1><a class="header" href="#state" id="state">State</a></h1>
+<p>Throughout the course of a <a href="state/../config/workflow.html">workflow</a>, Dobby will often have to remember some information from previous steps to use in future steps. This is done using an internal <code>State</code>. All workflows start in the <a href="state/./Initial.html">Initial</a> state and may transition between a states depending on the <a href="state/../config/step/step.html">steps</a> that are run. For example, the <a href="state/../config/step/SelectJiraIssue.html">SelectJiraIssue</a> step will transition the workflow to the <a href="state/./IssueSelected.html">IssueSelected</a> state.</p>
+<h2><a class="header" href="#potential-states" id="potential-states">Potential States</a></h2>
+<ul>
+<li><a href="state/./Initial.html">Initial</a></li>
+<li><a href="state/./IssueSelected.html">IssueSelected</a></li>
+</ul>
+<h1><a class="header" href="#initial-state" id="initial-state">Initial State</a></h1>
+<p>The starting <a href="state/./state.html">state</a> for all workflows, contains some config information only.</p>
+<h1><a class="header" href="#issueselected-state" id="issueselected-state">IssueSelected State</a></h1>
+<p>This <a href="state/./state.html">state</a> indicates that work is being done against an issue in some project management platform. Currently the supported platforms are GitHub and Jira. Any <a href="state/../config/step/step.html">step</a> which requires this state must be proceeded by a step which triggers this state.</p>
+<h2><a class="header" href="#triggered-by" id="triggered-by">Triggered By</a></h2>
+<ul>
+<li><a href="state/../config/step/SelectJiraIssue.html">SelectJiraIssue</a></li>
+<li><a href="state/../config/step/SelectGitHubIssue.html">SelectGitHubIssue</a></li>
+<li><a href="state/../config/step/SelectIssueFromBranch.html">SelectIssueFromBranch</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
