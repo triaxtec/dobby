@@ -163,9 +163,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>Dobby is a CLI for developers used to automate common tasks workflows. Things like transitioning issues, creating and merging branches, creating pull requests, bumping versions, tagging... anything that is a repetitive, time consuming task in your development cycle, this tool is made to speed up.</p>
+                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p>Dobby is a CLI for developers used to automate common tasks workflows. Things like transitioning issues, creating and merging branches, creating pull requests, bumping versions, tagging... anything that is a repetitive, time consuming task in your development cycle, this tool is made to speed up.</p>
 <h2><a class="header" href="#how-it-works" id="how-it-works">How it Works</a></h2>
-<p>Basically you create a file called <code>dobby.toml</code> in your project directory which defines some workflows. The format of this file is described in <a href="config/config.html">the next chapter</a>, the key piece to which is the <code>workflows</code> array. For a full example of a <code>dobby.toml</code>, check out the file for this project!</p>
+<p>Basically you create a file called <code>dobby.toml</code> in your project directory which defines some workflows. The format of this file is described in <a href="config/config.html">the chapter on config</a>, the key piece to which is the <code>workflows</code> array. For a full example of a <code>dobby.toml</code>, check out the file for this project!</p>
 <p>Once you've got a config set up, you just run this program (<code>dobby</code> if you installed normally via cargo). That will prompt you to select one of your configured workflows. Do that and you're off to the races!</p>
 <h2><a class="header" href="#features" id="features">Features</a></h2>
 <p>More detail on everything this program can do can be found by digging into <a href="config/config.html">config</a> but here's a rough (incomplete) summary:</p>
@@ -177,7 +178,7 @@
 <li>Do whatever you want by running arbitrary shell commands and substituting data from the project!</li>
 </ol>
 <h2><a class="header" href="#concepts" id="concepts">Concepts</a></h2>
-<p>You define a <a href="config/config.html">config</a> file named <code>dobby.toml</code> which has some metadata (e.g. Jira details) about your project, as well as a set of defined <a href="workflow.html">workflows</a>. Each <a href="workflow.html">workflow</a> consists of a series of <a href="step.html">steps</a> that will execute in order, stopping if any step fails. <a href="step.html">Steps</a> can affect the <a href="state.html">state</a> of the workflow. Some <a href="step.html">steps</a> require that the workflow be in a specific <a href="state.html">state</a> before they will work.</p>
+<p>You define a <a href="config/config.html">config</a> file named <code>dobby.toml</code> which has some metadata (e.g. Jira details) about your project, as well as a set of defined <a href="config/workflow.html">workflows</a>. Each <a href="config/workflow.html">workflow</a> consists of a series of <a href="config/step/step.html">steps</a> that will execute in order, stopping if any step fails. <a href="config/step/step.html">Steps</a> can affect the <a href="state/state.html">state</a> of the workflow. Some <a href="config/step/step.html">steps</a> require that the workflow be in a specific <a href="state/state.html">state</a> before they will work.</p>
 
                     </main>
 
