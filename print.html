@@ -427,11 +427,21 @@ variables = {&quot;version&quot; = &quot;Version&quot;}
 <p>This will look through all commits since the last tag and parse any <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> it finds. It will then bump the project version (depending on the <a href="https://semver.org">Semantic Versioning</a> rule determined from the commits) and add a new Changelog entry using the <a href="https://keepachangelog.com/en/1.0.0/">Keep A Changelog</a> format.</p>
 <h2><a class="header" href="#limitations" id="limitations">Limitations</a></h2>
 <p>The CHANGELOG format is pretty strict, it needs to have at least one version already in it and every version needs to be a level 2 header (<code>## 1.0.0</code>). Only three sections will be added to the new version, <code>### Breaking Changes</code> for anything that conventional commits have marked as breaking, <code>### Fixes</code> for anything called <code>fix:</code>, and <code>### Features</code> for anything with <code>feat: </code>. Any other commits (conventional or not) will be left out. A new version will <strong>always</strong> be generated though, even if there are no changes to record.</p>
+<h2><a class="header" href="#examples" id="examples">Examples</a></h2>
+<p>You can either provide an explicit path when declaring the step, like this:</p>
+<pre><code class="language-toml">[[workflows]]
+name = &quot;Release&quot;
+
+    [[workflows.steps]]
+    type = &quot;UpdateProjectFromCommits&quot;
+    changelog_path = &quot;docs/CHANGELOG.md&quot;
+</code></pre>
+<p>or omit the <code>changelog_path</code>, which will default it to &quot;CHANGELOG.md&quot; in the current directory.</p>
 <h2><a class="header" href="#errors-7" id="errors-7">Errors</a></h2>
 <p>The reasons this can fail:</p>
 <ol>
 <li>If there is no previous tag to base changes off of.</li>
-<li>There is no CHANGELOG.md file in the working directory to update.</li>
+<li>The provided path to the changelog file could not be found.</li>
 <li>The version could not be bumped for some reason.</li>
 </ol>
 <h1><a class="header" href="#jira" id="jira">Jira</a></h1>
