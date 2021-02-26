@@ -163,10 +163,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#selectgithubissue-step" id="selectgithubissue-step">SelectGitHubIssue Step</a></h1>
+                        <h1 id="selectgithubissue-step"><a class="header" href="#selectgithubissue-step">SelectGitHubIssue Step</a></h1>
 <p>Search for GitHub issues by status and display the list of them in the terminal. User is allowed to select one issue which will then change the workflow's state to
 <a href="../../state/IssueSelected.html">IssueSelected</a>.</p>
-<h2><a class="header" href="#errors" id="errors">Errors</a></h2>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
 <p>This step will fail if any of the following are true:</p>
 <ol>
 <li>The workflow is already in <a href="../../state/IssueSelected.html">IssueSelected</a> state before it executes.</li>
@@ -174,7 +174,7 @@
 <li>There is no <a href="../github.html">GitHub config</a> set.</li>
 <li>User does not select an issue.</li>
 </ol>
-<h2><a class="header" href="#example" id="example">Example</a></h2>
+<h2 id="example"><a class="header" href="#example">Example</a></h2>
 <pre><code class="language-toml">[[workflows]]
 name = &quot;Start some work&quot;
     [[workflows.steps]]

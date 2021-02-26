@@ -163,10 +163,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#workflow" id="workflow">Workflow</a></h1>
+                        <h1 id="workflow"><a class="header" href="#workflow">Workflow</a></h1>
 <p>A workflow is the entrypoint to doing work with Dobby. Once you start running <code>dobby</code> you must immediately select a workflow (by name) to be executed.</p>
 <p>Each workflow is defined in the <code>[[workflows]]</code> array in your <a href="./config.html">dobby.toml</a> file. Each entry contains a <code>name</code> attribute which is how the workflow will be displayed when running <code>dobby</code>. There is also an array of <a href="./step/step.html">steps</a> declared as <code>[[workflows.steps]]</code> which define the individual actions to take.</p>
-<h2><a class="header" href="#example" id="example">Example</a></h2>
+<h2 id="example"><a class="header" href="#example">Example</a></h2>
 <pre><code class="language-toml"># dobby.toml
 
 [[workflows]]
@@ -176,7 +176,7 @@ name = &quot;My First Workflow&quot;
     [[workflows.steps]]
     # second step details here
 </code></pre>
-<h2><a class="header" href="#see-also" id="see-also">See Also</a></h2>
+<h2 id="see-also"><a class="header" href="#see-also">See Also</a></h2>
 <ul>
 <li><a href="./step/step.html">Step</a> for details on how each <code>[[workflows.steps]]</code> is defined.</li>
 </ul>

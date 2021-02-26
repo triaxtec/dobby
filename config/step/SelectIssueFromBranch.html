@@ -163,11 +163,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#selectissuefrombranch-step" id="selectissuefrombranch-step">SelectIssueFromBranch step</a></h1>
+                        <h1 id="selectissuefrombranch-step"><a class="header" href="#selectissuefrombranch-step">SelectIssueFromBranch step</a></h1>
 <p>Attempt to parse issue info from the current branch name and change the workflow's state to <a href="../../state/IssueSelected.html">IssueSelected</a>.</p>
-<h2><a class="header" href="#errors" id="errors">Errors</a></h2>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
 <p>This step will fail if the current git branch cannot be determined or the name of that branch does not match the expected format. This is only intended to be used on branches which were created using the <a href="./SwitchBranches.html">SwitchBranches</a> step.</p>
-<h2><a class="header" href="#example" id="example">Example</a></h2>
+<h2 id="example"><a class="header" href="#example">Example</a></h2>
 <pre><code class="language-toml">[[workflows]]
 name = &quot;Finish some work&quot;
     [[workflows.steps]]

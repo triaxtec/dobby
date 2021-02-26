@@ -163,7 +163,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#step" id="step">Step</a></h1>
+                        <h1 id="step"><a class="header" href="#step">Step</a></h1>
 <p>A step is the atomic unit of work that Dobby operates on. In a <a href="../workflow.html">workflow</a>, steps will be executed sequentially until one fails or all steps are completed.</p>
 <p>In it's simplest form, a step is declared in a <a href="../workflow.html">workflow</a> like this:</p>
 <pre><code class="language-toml">[[workflows]]
@@ -173,7 +173,7 @@ name = &quot;My Workflow&quot;
     more_info = &quot;Something&quot;
 </code></pre>
 <p>Where <code>type</code> matches one of the available steps listed below. Some steps also can take additional parameters in config, those go right underneath <code>type</code> like <code>more_info</code> above.</p>
-<h2><a class="header" href="#available-steps" id="available-steps">Available Steps</a></h2>
+<h2 id="available-steps"><a class="header" href="#available-steps">Available Steps</a></h2>
 <ul>
 <li><a href="./SelectJiraIssue.html">SelectJiraIssue</a></li>
 <li><a href="./TransitionJiraIssue.html">TransitionJiraIssue</a></li>

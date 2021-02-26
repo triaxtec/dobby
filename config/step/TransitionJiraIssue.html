@@ -163,16 +163,16 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#transitionjiraissue-step" id="transitionjiraissue-step">TransitionJiraIssue Step</a></h1>
+                        <h1 id="transitionjiraissue-step"><a class="header" href="#transitionjiraissue-step">TransitionJiraIssue Step</a></h1>
 <p>Transition a Jira issue to a new status.</p>
-<h2><a class="header" href="#errors" id="errors">Errors</a></h2>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
 <p>This step will fail when any of the following are true:</p>
 <ol>
 <li>The workflow is not yet in <a href="../../state/IssueSelected.html">IssueSelected</a> state.</li>
 <li>Cannot communicate with Jira.</li>
 <li>The configured status is invalid for the issue.</li>
 </ol>
-<h2><a class="header" href="#example" id="example">Example</a></h2>
+<h2 id="example"><a class="header" href="#example">Example</a></h2>
 <pre><code class="language-toml">[[workflows]]
 name = &quot;Start some work&quot;
     [[workflows.steps]]
