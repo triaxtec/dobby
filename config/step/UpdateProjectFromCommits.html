@@ -165,6 +165,7 @@
                     <main>
                         <h1 id="updateprojectfromcommits-step"><a class="header" href="#updateprojectfromcommits-step">UpdateProjectFromCommits step</a></h1>
 <p>This will look through all commits since the last tag and parse any <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> it finds. It will then bump the project version (depending on the <a href="https://semver.org">Semantic Versioning</a> rule determined from the commits) and add a new Changelog entry using the <a href="https://keepachangelog.com/en/1.0.0/">Keep A Changelog</a> format.</p>
+<p>The version bumping follows the same rules and logic as the <a href="./BumpVersion.html">BumpVersion</a> step, with the rule selected for you automatically.</p>
 <h2 id="limitations"><a class="header" href="#limitations">Limitations</a></h2>
 <p>The CHANGELOG format is pretty strict, it needs to have at least one version already in it and every version needs to be a level 2 header (<code>## 1.0.0</code>). Only three sections will be added to the new version, <code>### Breaking Changes</code> for anything that conventional commits have marked as breaking, <code>### Fixes</code> for anything called <code>fix:</code>, and <code>### Features</code> for anything with <code>feat: </code>. Any other commits (conventional or not) will be left out. A new version will <strong>always</strong> be generated though, even if there are no changes to record.</p>
 <h2 id="examples"><a class="header" href="#examples">Examples</a></h2>

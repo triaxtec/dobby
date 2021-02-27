@@ -188,6 +188,13 @@ value = &quot;rc&quot;
 <p>Increment the Patch component of the semantic version and reset all lesser components (e.g. 1.2.3-rc.4 -&gt; 1.2.4).</p>
 <h3 id="pre"><a class="header" href="#pre">Pre</a></h3>
 <p>Increment the pre-release component of the semantic version or add it if missing. You must also provide a <code>value</code> parameter to this rule which will determine the pre-release string used. For example, running this rule with the <code>value</code> &quot;rc&quot; would change &quot;1.2.3-rc.4&quot; to &quot;1.2.3-rc.5&quot; or &quot;1.2.3&quot; to &quot;1.2.3-rc.0&quot;.</p>
+<h3 id="a-note-on-0x-versions"><a class="header" href="#a-note-on-0x-versions">A Note on 0.x Versions</a></h3>
+<p><a href="https://semver.org">Semantic versioning</a> dictates different handling of any version which has a major component of 0 (e.g. 0.1.2). This major version should not be incremented to 1 until the project has reached a stable state. As such, it would be irresponsible (and probably incorrect) for Dobby to increment to version 1.0.0 the first time there is a breaking change in a 0.x project. As such, any <code>Major</code> rule applied to a 0.x project will increment the <code>Minor</code> component, and any <code>Minor</code> rule will increment the <code>Patch</code> component. This effectively means that for the version <code>0.1.2</code>:</p>
+<ol>
+<li>The first component (<code>0</code>) is ignored</li>
+<li>The second component (<code>1</code>) serves as the <code>Major</code> component, and will be incremented whenever the <code>Major</code> rule is applied.</li>
+<li>The third component (<code>2</code>) serves as <strong>both</strong> <code>Minor</code> and <code>Patch</code> and will be incremented when either rule is applied.</li>
+</ol>
 <h3 id="release"><a class="header" href="#release">Release</a></h3>
 <p>Remove the pre-release component of the semantic version (e.g. 1.2.3-rc.4 -&gt; 1.2.3).</p>
 <h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
